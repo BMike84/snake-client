@@ -8,8 +8,8 @@ const setupInput = function (conn) {
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding('utf8');
-  stdin.resume();
   stdin.on('data', handleUserInput);
+  stdin.resume();
   return stdin;
 };
 
@@ -20,20 +20,29 @@ const handleUserInput = function (key) {
   }
 
   if (key === 'w') {
-    console.log('Move: up');
+    connection.write('Move: up');
   }
   
   if (key === 'a') {
-    console.log('Move: left');
+    connection.write('Move: left');
   }
   
   if (key === 's') {
-    console.log('Move: down');
+    connection.write('Move: down');
   }
   
   if (key === 'd') {
-    console.log('Move: right');
+    connection.write('Move: right');
   }
+  
+  if (key === 't') {
+    connection.write('Say: ✌🏼');
+  }
+  
+  if (key === 'u') {
+    connection.write('Say: Hi');
+  }
+  
 };
 
 //export
