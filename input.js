@@ -35,11 +35,11 @@ const handleUserInput = function (key) {
     connection.write('Move: right');
   }
   
-  if (key === 't') {
-    connection.write('Say: ✌🏼');
+  if (key === '1') {
+    connection.write('Say: Best of Luck');
   }
   
-  if (key === 'u') {
+  if (key === '2') {
     connection.write('Say: Hi');
   }
   
