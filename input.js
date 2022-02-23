@@ -1,9 +1,6 @@
-//setup interface to handle user input from stdin
-const { connect } = require("./client");
-
 let connection;
 
-const setupInput = function (conn) {
+const setupInput = function(conn) {
   connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
@@ -13,28 +10,28 @@ const setupInput = function (conn) {
   return stdin;
 };
 
-const handleUserInput = function (key) {
+const handleUserInput = function(key) {
   // \u0003 maps to ctrl+c input
   if (key === '\u0003') {
     process.exit();
   }
-
+  //will move the snake up
   if (key === 'w') {
     connection.write('Move: up');
   }
-  
+  //will move the snake left
   if (key === 'a') {
     connection.write('Move: left');
   }
-  
+  //will move the snake down
   if (key === 's') {
     connection.write('Move: down');
   }
-  
+  //will move the snake right
   if (key === 'd') {
     connection.write('Move: right');
   }
-  
+  //next two are for text to greet competitor
   if (key === '1') {
     connection.write('Say: Best of Luck');
   }
@@ -45,5 +42,4 @@ const handleUserInput = function (key) {
   
 };
 
-//export
 module.exports = { setupInput };
