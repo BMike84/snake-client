@@ -2,7 +2,7 @@ const net = require('net');
 const { IP, PORT } = require('./constant');
 
 // //establishes a connection with the game server
-const connect = function () {
+const connect = function() {
   const conn = net.createConnection({
     host: IP,
     port: PORT
@@ -16,13 +16,6 @@ const connect = function () {
     console.log('Successfully connected to game server!');
     conn.write('Name: MAB');
   });
-
-  // conn.on('connect', () => {
-  //   conn.write('Move: left');
-  //   setInterval(() => {
-  //     conn.write('Move: up');
-  //   }, 500); 
-  // });
   
   //get data from the server side
   conn.on('data', (data) => {
